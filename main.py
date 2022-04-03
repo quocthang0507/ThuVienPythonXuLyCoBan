@@ -1,4 +1,5 @@
 from KiemThu import *
+from time import *
 
 # print(ChieuDai(mang_so_1))
 # print(ChieuDai(ds_so_1))
@@ -16,4 +17,19 @@ from KiemThu import *
 # print(LonNhat(mang_chu_1))
 # print(LonNhat(mang_so_2))
 print(mang_so_3)
+#--------------------------------
+bat_dau = time()
 print(LonNhat(mang_so_3))
+print(NhoNhat(mang_so_3))
+#print(DaoNguoc(mang_so_3))
+ket_thuc = time()
+print('Thoi gian chay (ms): ', (ket_thuc - bat_dau) * 1000)
+#--------------------------------
+bat_dau = time()
+print(max(mang_so_3))
+print(min(mang_so_3))
+# mang_so_3.reverse()
+# print(mang_so_3)
+ket_thuc = time()
+print('Thoi gian chay (ms): ', (ket_thuc - bat_dau) * 1000)
+#--------------------------------

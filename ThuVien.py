@@ -96,3 +96,30 @@ def LonNhat(mang: []):
             if lon_nhat < mang[vi_tri]:
                 lon_nhat = mang[vi_tri]
         return lon_nhat
+
+
+def NhoNhat(mang: []):
+    """Tìm giá trị nhỏ nhất có trong mảng
+
+    :param mang: Mảng
+    :return: Giá trị nhỏ nhất
+    """
+    chieu_dai = ChieuDai(mang)
+    if chieu_dai == 0:
+        raise Exception('Mảng không được bỏ trống')
+    else:
+        nho_nhat = mang[0]
+        for vi_tri in DaySo(1, chieu_dai):
+            if nho_nhat > mang[vi_tri]:
+                nho_nhat = mang[vi_tri]
+        return nho_nhat
+
+
+def DaoNguoc(mang: []):
+    chieu_dai = ChieuDai(mang)
+    if chieu_dai <= 1:
+        return mang
+    mang_dao_nguoc = []
+    for vi_tri in DaySo(chieu_dai - 1, -1, -1):
+        mang_dao_nguoc = Noi(mang_dao_nguoc, mang[vi_tri])
+    return mang_dao_nguoc
