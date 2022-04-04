@@ -123,3 +123,27 @@ def DaoNguoc(mang: []):
     for vi_tri in DaySo(chieu_dai - 1, -1, -1):
         mang_dao_nguoc = Noi(mang_dao_nguoc, mang[vi_tri])
     return mang_dao_nguoc
+
+def SapXep(mang: []):
+    def Partition(mang: [], low: int, high: int):
+        pivot = mang[high]
+        left = low
+        right = high - 1
+        while True:
+            while left <= right and mang[left] < pivot:
+                left += 1
+            while right >= left and mang[right] > pivot:
+                right -= 1
+            if left >= right:
+                break
+            mang[left], mang[right] = mang[right], mang[left]
+            left += 1
+            right -= 1
+        mang[left], mang[high] = mang[high], mang[left]
+        return left
+    def QuickSort(mang, low, high):
+        if low < high:
+            so = Partition(mang, low, high)
+            QuickSort(mang, low, so - 1)
+            QuickSort(mang, so + 1, high)
+    QuickSort(mang, 0, ChieuDai(mang) - 1)
